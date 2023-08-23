@@ -48,20 +48,20 @@ public class Drivetrain extends SubsystemBase {
     public static final int kFLSteerMotorPort = 2;
     public static final int kFLSteerEncoderPort = 3;
 
-    //For module front right
-    public static final int kFRDriveMotorPort = 4;
-    public static final int kFRSteerMotorPort = 5;
-    public static final int kFRSteerEncoderPort = 6;
+    // //For module front right
+    // public static final int kFRDriveMotorPort = 4;
+    // public static final int kFRSteerMotorPort = 5;
+    // public static final int kFRSteerEncoderPort = 6;
 
-    //For module back left 
-    public static final int kBLDriveMotorPort = 7;
-    public static final int kBLSteerMotorPort = 8;
-    public static final int kBLSteerEncoderPort = 9;
+    // //For module back left 
+    // public static final int kBLDriveMotorPort = 7;
+    // public static final int kBLSteerMotorPort = 8;
+    // public static final int kBLSteerEncoderPort = 9;
 
-    //For module back right
-    public static final int kBRDriveMotorPort = 10;
-    public static final int kBRSteerMotorPort = 11;
-    public static final int kBRSteerEncoderPort = 12;
+    // //For module back right
+    // public static final int kBRDriveMotorPort = 10;
+    // public static final int kBRSteerMotorPort = 11;
+    // public static final int kBRSteerEncoderPort = 12;
 
     public static final double kAngularError = 0;
 
@@ -109,21 +109,21 @@ public class Drivetrain extends SubsystemBase {
 
   /** Creates a new Drivetrain. */
   public Drivetrain() {
-    final SwerveModule m_frontLeft = 
-    createModule("Front left", Config.kGearRatio, Config.kFLDriveMotorPort, Config.kFLSteerMotorPort, Config.kFLSteerEncoderPort, Config.kOffset);
+    final SwerveModule m_module = 
+    createModule("Module", Config.kGearRatio, Config.kFLDriveMotorPort, Config.kFLSteerMotorPort, Config.kFLSteerEncoderPort, Config.kOffset);
   
-    final SwerveModule m_frontRight = 
-    createModule("Front right", Config.kGearRatio, Config.kFRDriveMotorPort, Config.kFRSteerMotorPort, Config.kFRSteerEncoderPort, Config.kOffset);
+    // final SwerveModule m_frontRight = 
+    // createModule("Front right", Config.kGearRatio, Config.kFRDriveMotorPort, Config.kFRSteerMotorPort, Config.kFRSteerEncoderPort, Config.kOffset);
   
-    final SwerveModule m_backLeft = 
-    createModule("Back left", Config.kGearRatio, Config.kBLDriveMotorPort, Config.kBLSteerMotorPort, Config.kBLSteerEncoderPort, Config.kOffset);
+    // final SwerveModule m_backLeft = 
+    // createModule("Back left", Config.kGearRatio, Config.kBLDriveMotorPort, Config.kBLSteerMotorPort, Config.kBLSteerEncoderPort, Config.kOffset);
  
-    final SwerveModule m_backRight = 
-    createModule("Front left", Config.kGearRatio, Config.kBRDriveMotorPort, Config.kBRSteerMotorPort, Config.kBRSteerEncoderPort, Config.kOffset);
+    // final SwerveModule m_backRight = 
+    // createModule("Front left", Config.kGearRatio, Config.kBRDriveMotorPort, Config.kBRSteerMotorPort, Config.kBRSteerEncoderPort, Config.kOffset);
   
-    m_swerveModules = new SwerveModule[]{m_frontLeft, m_frontRight, m_backLeft, m_backRight};
+    m_swerveModules = new SwerveModule[]{m_module};//, m_frontRight, m_backLeft, m_backRight};
   
-    m_rotController = new PIDController(m_targetAngle, m_targetAngle, m_targetAngle);
+    m_rotController = new PIDController(Config.kRotP, Config.kRotI, Config.kRotD);
     m_rotController.setSetpoint(0);
     m_rotController.setTolerance(Config.kAngularError);
 
@@ -153,10 +153,10 @@ public class Drivetrain extends SubsystemBase {
 
   private SwerveModulePosition[] getSwerveModulePositions(){
     return new SwerveModulePosition[] {
-      m_swerveModules[0].getPosition(),
-      m_swerveModules[1].getPosition(),
-      m_swerveModules[2].getPosition(),
-      m_swerveModules[3].getPosition()  
+      m_swerveModules[0].getPosition() //,
+      // m_swerveModules[1].getPosition(),
+      // m_swerveModules[2].getPosition(),
+      // m_swerveModules[3].getPosition()  
     };
   }
 

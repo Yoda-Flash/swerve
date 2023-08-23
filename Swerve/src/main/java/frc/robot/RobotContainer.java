@@ -5,8 +5,14 @@
 package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
+import frc.robot.commands.DriveBackward;
+import frc.robot.commands.DriveForward;
+import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.Encoder;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 /**
@@ -17,6 +23,16 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
+
+  private Drivetrain m_drivetrain = new Drivetrain();
+  private Encoder m_encoder = new Encoder();
+
+  private DriveForward m_forward = new DriveForward(m_drivetrain, m_encoder);
+  private DriveBackward m_backward = new DriveBackward(m_drivetrain, m_encoder);
+
+  private Joystick m_joystick = new Joystick(0);
+  private JoystickButton m_front = new JoystickButton(m_joystick, 0);
+  private JoystickButton m_back = new JoystickButton (m_joystick, 1);
   
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -35,6 +51,8 @@ public class RobotContainer {
    */
   private void configureBindings() {
     
+    m_front.onTrue(m_forward);
+    m_back.onTrue(m_backward);
     
   }
 
