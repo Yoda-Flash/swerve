@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 
 public class Encoder extends CommandBase {
   
-  private DutyCycleEncoder m_encoder = new DutyCycleEncoder(0);
+  private DutyCycleEncoder m_encoder = new DutyCycleEncoder(9);
 
   /** Creates a new Encoder. */
   public Encoder() {

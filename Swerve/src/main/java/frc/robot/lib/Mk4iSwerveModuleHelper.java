@@ -17,12 +17,12 @@ public final class Mk4iSwerveModuleHelper {
                 .build();
     }
 
-    private static SteerControllerFactory<?, Falcon500SteerConfiguration<CanCoderAbsoluteConfiguration>> getFalcon500SteerFactory(Mk4ModuleConfiguration configuration) {
+    private static SteerControllerFactory<?, Falcon500SteerConfiguration<MagEncoderAbsoluteConfiguration>> getFalcon500SteerFactory(Mk4ModuleConfiguration configuration) {
         return new Falcon500SteerControllerFactoryBuilder()
                 .withVoltageCompensation(configuration.getNominalVoltage())
                 .withPidConstants(0.2, 0.0, 0.1)
                 .withCurrentLimit(configuration.getSteerCurrentLimit())
-                .build(new CanCoderFactoryBuilder()
+                .build(new MagEncoderFactoryBuilder()
                         .withReadingUpdatePeriod(100)
                         .build());
     }
@@ -34,12 +34,12 @@ public final class Mk4iSwerveModuleHelper {
                 .build();
     }
 
-    private static SteerControllerFactory<?, NeoSteerConfiguration<CanCoderAbsoluteConfiguration>> getNeoSteerFactory(Mk4ModuleConfiguration configuration) {
+    private static SteerControllerFactory<?, NeoSteerConfiguration<MagEncoderAbsoluteConfiguration>> getNeoSteerFactory(Mk4ModuleConfiguration configuration) {
         return new NeoSteerControllerFactoryBuilder()
                 .withVoltageCompensation(configuration.getNominalVoltage())
                 .withPidConstants(1.0, 0.0, 0.1)
                 .withCurrentLimit(configuration.getSteerCurrentLimit())
-                .build(new CanCoderFactoryBuilder()
+                .build(new MagEncoderFactoryBuilder()
                         .withReadingUpdatePeriod(100)
                         .build());
     }
@@ -75,7 +75,7 @@ public final class Mk4iSwerveModuleHelper {
                 driveMotorPort,
                 new Falcon500SteerConfiguration<>(
                         steerMotorPort,
-                        new CanCoderAbsoluteConfiguration(steerEncoderPort, steerOffset)
+                        new MagEncoderAbsoluteConfiguration(steerEncoderPort, steerOffset)
                 )
         );
     }
@@ -130,7 +130,7 @@ public final class Mk4iSwerveModuleHelper {
                 driveMotorPort,
                 new Falcon500SteerConfiguration<>(
                         steerMotorPort,
-                        new CanCoderAbsoluteConfiguration(steerEncoderPort, steerOffset)
+                        new MagEncoderAbsoluteConfiguration(steerEncoderPort, steerOffset)
                 )
         );
     }
@@ -186,7 +186,7 @@ public final class Mk4iSwerveModuleHelper {
                 driveMotorPort,
                 new NeoSteerConfiguration<>(
                         steerMotorPort,
-                        new CanCoderAbsoluteConfiguration(steerEncoderPort, steerOffset)
+                        new MagEncoderAbsoluteConfiguration(steerEncoderPort, steerOffset)
                 )
         );
     }
@@ -241,7 +241,7 @@ public final class Mk4iSwerveModuleHelper {
                 driveMotorPort,
                 new NeoSteerConfiguration<>(
                         steerMotorPort,
-                        new CanCoderAbsoluteConfiguration(steerEncoderPort, steerOffset)
+                        new MagEncoderAbsoluteConfiguration(steerEncoderPort, steerOffset)
                 )
         );
     }
@@ -297,7 +297,7 @@ public final class Mk4iSwerveModuleHelper {
                 driveMotorPort,
                 new NeoSteerConfiguration<>(
                         steerMotorPort,
-                        new CanCoderAbsoluteConfiguration(steerEncoderPort, steerOffset)
+                        new MagEncoderAbsoluteConfiguration(steerEncoderPort, steerOffset)
                 )
         );
     }
@@ -352,7 +352,7 @@ public final class Mk4iSwerveModuleHelper {
                 driveMotorPort,
                 new NeoSteerConfiguration<>(
                         steerMotorPort,
-                        new CanCoderAbsoluteConfiguration(steerEncoderPort, steerOffset)
+                        new MagEncoderAbsoluteConfiguration(steerEncoderPort, steerOffset)
                 )
         );
     }
@@ -408,7 +408,7 @@ public final class Mk4iSwerveModuleHelper {
                 driveMotorPort,
                 new Falcon500SteerConfiguration<>(
                         steerMotorPort,
-                        new CanCoderAbsoluteConfiguration(steerEncoderPort, steerOffset)
+                        new MagEncoderAbsoluteConfiguration(steerEncoderPort, steerOffset)
                 )
         );
     }
@@ -463,7 +463,7 @@ public final class Mk4iSwerveModuleHelper {
                 driveMotorPort,
                 new Falcon500SteerConfiguration<>(
                         steerMotorPort,
-                        new CanCoderAbsoluteConfiguration(steerEncoderPort, steerOffset)
+                        new MagEncoderAbsoluteConfiguration(steerEncoderPort, steerOffset)
                 )
         );
     }

@@ -44,9 +44,9 @@ public class Drivetrain extends SubsystemBase {
     public static final double kOffset = 1.0;
 
     //For module front left
-    public static final int kFLDriveMotorPort = 1;
-    public static final int kFLSteerMotorPort = 2;
-    public static final int kFLSteerEncoderPort = 3;
+    public static final int kFLDriveMotorPort = 10;
+    public static final int kFLSteerMotorPort = 3;
+    public static final int kFLSteerEncoderPort = 9;
 
     // //For module front right
     // public static final int kFRDriveMotorPort = 4;
@@ -87,7 +87,7 @@ public class Drivetrain extends SubsystemBase {
 
   private SwerveModule createModule(
     String title, GearRatio gearRatio, int driveMotorPort, int steerMotorPort, int steerEncoderPort, double steerOffset){
-    return Mk4iSwerveModuleHelper.createFalcon500(
+    return Mk4iSwerveModuleHelper.createNeoFalcon500(
       gearRatio, driveMotorPort, steerMotorPort, steerEncoderPort, steerOffset);
   }
 
