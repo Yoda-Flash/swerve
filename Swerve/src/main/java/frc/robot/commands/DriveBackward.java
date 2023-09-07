@@ -4,8 +4,8 @@
 
 package frc.robot.commands;
 
-import frc.robot.subsystems.Encoder;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
+import edu.wpi.first.wpilibj.DutyCycleEncoder;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Drivetrain;
@@ -13,14 +13,13 @@ import frc.robot.subsystems.Drivetrain;
 public class DriveBackward extends CommandBase {
 
   private Drivetrain m_drivetrain;
-  private Encoder m_encoder;
+  private DutyCycleEncoder m_encoder = new DutyCycleEncoder(9);
   private ChassisSpeeds m_speeds = new ChassisSpeeds(-0.5, 0, 0);
 
   /** Creates a new DriveBackward. */
-  public DriveBackward(Drivetrain drivetrain, Encoder encoder) {
+  public DriveBackward(Drivetrain drivetrain) {
 
     m_drivetrain = drivetrain;
-    m_encoder = encoder;
 
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_drivetrain);

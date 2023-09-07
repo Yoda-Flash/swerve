@@ -8,7 +8,6 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.DriveBackward;
 import frc.robot.commands.DriveForward;
 import frc.robot.subsystems.Drivetrain;
-import frc.robot.subsystems.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -25,10 +24,9 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
 
   private Drivetrain m_drivetrain = new Drivetrain();
-  private Encoder m_encoder = new Encoder();
 
-  private DriveForward m_forward = new DriveForward(m_drivetrain, m_encoder);
-  private DriveBackward m_backward = new DriveBackward(m_drivetrain, m_encoder);
+  private DriveForward m_forward = new DriveForward(m_drivetrain);
+  private DriveBackward m_backward = new DriveBackward(m_drivetrain);
 
   private Joystick m_joystick = new Joystick(0);
   private JoystickButton m_front = new JoystickButton(m_joystick, 0);
